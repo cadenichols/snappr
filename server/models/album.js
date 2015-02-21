@@ -11,6 +11,7 @@ var albumSchema = mongoose.Schema({
   date: {type: Date, required: true},
   createdAt: {type: Date, default: Date.now, required: true},
   primary: {type: Number, default: 0},
+  userId: {type: mongoose.Schema.ObjectId, ref: 'User'},
   photos: [String]
 });
 

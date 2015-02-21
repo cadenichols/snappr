@@ -15,5 +15,11 @@ module.exports = [
   {method: 'post', path: '/albums/{albumId}/add', config: require('../routes/photos/create')},
   {method: 'get', path: '/albums/{albumId}/{photoIndex}', config: require('../routes/photos/show')},
   {method: 'post', path: '/albums/{albumId}/{photoIndex}/delete', config: require('../routes/photos/destroy')},
-  {method: 'post', path: '/albums/{albumId}/{photoIndex}/primary', config: require('../routes/photos/primary')}
+  {method: 'post', path: '/albums/{albumId}/{photoIndex}/primary', config: require('../routes/photos/primary')},
+
+  {method: 'get', path: '/register', config: require('../routes/users/new')},
+  {method: 'post', path: '/users', config: require('../routes/users/create')},
+  {method: 'get', path: '/login', config: require('../routes/users/login')},
+  {method: 'post', path: '/users/authenticate', config: require('../routes/users/authenticate')}
+
 ];
