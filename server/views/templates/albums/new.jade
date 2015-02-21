@@ -1,12 +1,14 @@
 extends ../../layouts/master
 block content
-  h3 New Album
+  .row
+    .col-xs-12
+      h3 New Album
 
-  form(method='post', action='/albums', enctype='multipart/form-data')
-    label Name
-    input(type='text', name='name')
-    label Date
-    input(type='date', name='date')
-    label Photos
-    input(type='file', name='photos', multiple=true)
-    button(type='submit') Add Album
+      form(method='post', action='/albums', enctype='multipart/form-data')
+        label Name
+        input(type='text', name='name', required, autofocus=true)
+        label Date
+        input(type='date', name='date', required)
+        label Photos
+        input(type='file', name='photos', required, multiple=true)
+        button(type='submit') Add Album

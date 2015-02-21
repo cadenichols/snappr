@@ -1,0 +1,11 @@
+extends ../../layouts/master
+block content
+  .row
+    .col-xs-12
+      .bigphoto(style='background-image:url("'+ album.photos[photoIndex] +'")')
+  .row
+    .col-xs-12
+      .btn-toolbar(role='toolbar')
+        .btn-group(role='group')
+          //- form(method='post', action='/a/#{apt._id}/delete')
+          //-   button.btn.btn-danger(type='submit'): i.fa.fa-times     

@@ -1,0 +1,9 @@
+extends ../../layouts/master
+block content
+  .row
+    .col-xs-12
+      h3 New Photo
+        form(method='post', action='/albums/#{album._id}/add', enctype='multipart/form-data')
+          label Photo
+          input(type='file', name='photo', required)
+          button(type='submit') Add Photo

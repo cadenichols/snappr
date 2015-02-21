@@ -1,0 +1,32 @@
+extends ../../layouts/master
+block content
+  .row
+    .col-xs-12
+      h3.panel-title: a(href='/albums/#{album._id}')= album.name
+  .row
+    .col-xs-12
+      dl.albumlist
+        dt Photos taken:
+        dd= album.date
+      dl.albumlist
+        dt Album Added:
+        dd= album.createdAt
+      .albumlist.btn-toolbar(role='toolbar')
+        .btn-group(role='group')
+          a.btn.btn-default(href='/albums/#{album._id}/new'): i.fa.fa-picture-o Add Photo
+        .btn-group(role='group')
+          a.btn.btn-default(href='/albums/#{album._id}/edit'): i.fa.fa-pencil-square-o Edit Album          
+          //- include ../../partials/newPhotoModal
+          //- button#newModal.btn.btn-default(type='button', data-toggle='modal', data-target='#newPhotoModal', data-album=#{album._id}): i.fa.fa-picture-o Add Photo
+  .row
+    .col-xs-12
+      .thumbnail
+        each photo, index in photos
+          .panel.panel-default
+            .panel-body
+              a(href='/albums/#{album._id}/' + index): .photo(style='background-image:url("'+ photo +'")')
+            .panel-footer
+              form(method='post', action='/albums/#{album._id}/' + index +'/primary')
+                button.btn.btn-default(type='submit'): i.fa.fa-heart
+              form(method='post', action='/albums/#{album._id}/' + index +'/delete')
+                button.btn.btn-danger(type='submit'): i.fa.fa-times

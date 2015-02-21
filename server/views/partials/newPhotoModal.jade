@@ -1,0 +1,19 @@
+#newPhotoModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') &times;
+        h4#myModalLabel.modal-title Upload New Photo
+      form(method='post', action='/albums/#{albumId}', enctype='multipart/form-data')
+        .modal-body
+          label Photo
+          input(type='file', name='photos')
+        .modal-footer
+          button.btn.btn-default(type='button', data-dismiss='modal') Close
+          button.btn.btn-primary(type='submit') Add Photo
+script.
+  $('#newPhotoModal').on('show.bs.modal'), function (e) {
+    var albumId = $(e.relatedTarget).data('data-album');
+    $('#newPhotoModal').data('albumId', albumId);
+  }

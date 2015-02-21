@@ -1,4 +1,18 @@
 extends ../../layouts/master
 block content
-  h3 Albums
-  a(href='/albums/new') Add New Album
+  .row
+    .col-xs-12
+      h3 Albums
+      a(href='/albums/new') Add New Album
+  .row
+    .col-xs-12
+      .thumbnail
+        each album in albums
+          .panel.panel-default
+            .panel-heading
+              h3.panel-title: a(href='/albums/#{album._id}')= album.name
+            .panel-body
+              dl
+                dt Album Created:
+                dd= album.createdAt
+              a(href='/albums/#{album._id}'): .photo(style='background-image:url("'+ album.photos[album.primary] +'")')
