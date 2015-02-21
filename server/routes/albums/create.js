@@ -7,7 +7,7 @@ module.exports = {
     maxBytes: 16777216, // 2^24 ; 16MB
     output:'stream',
     parse: true,
-    timeout: 60000
+  timeout: 60000
   },
   handler: function(request, reply) {
     var photos = [].concat(request.payload.photos);
