@@ -4,7 +4,7 @@ var Joi = require('joi');
 var User = require('../../models/user');
 
 module.exports = {
-  auth:false,
+  auth: false,
   validate: {
     payload: {
       email: Joi.string().email(),

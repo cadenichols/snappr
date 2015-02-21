@@ -1,7 +1,9 @@
 'use strict';
 
 module.exports = {
-  auth: false,
+  auth: {
+    mode: 'try'
+  },
   handler: function(request, reply) {
     reply.view('templates/users/login');
   }
